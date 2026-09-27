@@ -138,16 +138,13 @@ export const GameLibrary: React.FC<GameLibraryProps> = ({ onSelectProject }) => 
               <img 
                 src={currentProject.images.hero} 
                 alt={currentProject.title}
-                className={`w-full h-full object-cover object-center filter contrast-110 brightness-85 transition-all duration-500 ${
+                className={`w-full h-full object-cover object-center filter contrast-105 brightness-95 transition-all duration-500 ${
                   isAnimating ? 'opacity-30 scale-105 blur-sm' : 'opacity-100 scale-100 blur-0'
                 }`}
               />
 
-              {/* Atmospheric Gradient Shading */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-transparent to-black/40" />
-
               {/* Watermark Code */}
-              <div className="absolute bottom-4 left-4 z-10 flex items-center space-x-2 bg-[#080808]/90 border border-[#262626] px-3 py-1 text-xs font-mono text-[#D7FF3F] font-bold">
+              <div className="absolute bottom-4 left-4 z-10 flex items-center space-x-2 bg-[#080808]/90 border border-[#262626] px-3 py-1 text-xs font-mono text-[#D7FF3F] font-bold backdrop-blur-md">
                 <span className="w-1.5 h-1.5 bg-[#D7FF3F] animate-ping" />
                 <span>SYS_ID: {currentProject.codename}</span>
               </div>
@@ -161,7 +158,7 @@ export const GameLibrary: React.FC<GameLibraryProps> = ({ onSelectProject }) => 
                 onMouseEnter={() => sound.playHover()}
                 data-cursor="interact"
                 data-cursor-label="INSPECT 4K"
-                className="absolute top-4 right-4 z-10 p-2 bg-[#080808]/80 hover:bg-[#D7FF3F] hover:text-[#080808] border border-[#3F3F46] text-[#A0A0A0] transition-all flex items-center gap-1.5 text-xs font-mono font-bold"
+                className="absolute top-4 right-4 z-10 p-2 bg-[#080808]/90 hover:bg-[#D7FF3F] hover:text-[#080808] border border-[#3F3F46] text-[#A0A0A0] transition-all flex items-center gap-1.5 text-xs font-mono font-bold backdrop-blur-md"
               >
                 <Eye className="w-4 h-4" />
                 <span className="hidden sm:inline">DEEP INSPECT</span>

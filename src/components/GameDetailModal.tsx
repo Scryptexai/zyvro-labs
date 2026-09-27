@@ -269,20 +269,19 @@ export const GameDetailModal: React.FC<GameDetailModalProps> = ({
                   <img 
                     src={galleryImages[activeGalleryIdx] || project.images.hero} 
                     alt={project.title}
-                    className="w-full h-full object-cover filter contrast-110 brightness-90 transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover filter contrast-105 brightness-95 transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-transparent to-transparent pointer-events-none" />
                   
                   {/* Resolution Badge */}
-                  <div className="absolute top-3 left-3 bg-[#080808]/85 border border-[#292929] px-2.5 py-1 text-[10px] font-mono text-[#D7FF3F] flex items-center gap-1.5 font-bold">
+                  <div className="absolute top-3 left-3 bg-[#080808]/90 border border-[#292929] px-2.5 py-1 text-[10px] font-mono text-[#D7FF3F] flex items-center gap-1.5 font-bold backdrop-blur-md">
                     <Maximize2 className="w-3 h-3" />
                     <span>4K ULTRA-HD MASTER RENDER</span>
                   </div>
+                </div>
 
-                  {/* Lore Quote Overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 text-xs font-mono text-[#D0D0D0] italic bg-[#0c0c0c]/85 p-3 border-l-2 border-[#D7FF3F]">
-                    {project.loreQuote}
-                  </div>
+                {/* Lore Quote as dedicated banner below artwork */}
+                <div className="text-xs font-mono text-[#CCCCCC] italic bg-[#111111] p-3 border-l-2 border-[#D7FF3F]">
+                  {project.loreQuote}
                 </div>
 
                 {/* Thumbnails Bar */}
