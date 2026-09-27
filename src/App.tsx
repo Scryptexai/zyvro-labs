@@ -17,7 +17,7 @@ import { CrewDatabase } from './components/CrewDatabase';
 import { TransmissionTerminal } from './components/TransmissionTerminal';
 import { SystemFooter } from './components/SystemFooter';
 import { CommandPalette } from './components/CommandPalette';
-import { LogoShowcaseModal, LogoOptionId } from './components/LogoShowcaseModal';
+import { ZVLogoVariant } from './components/ZyvroLogo';
 
 export const App: React.FC = () => {
   const [isBooted, setIsBooted] = useState(false);
@@ -25,8 +25,7 @@ export const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<GameProject | null>(null);
   const [isScanlinesOn, setIsScanlinesOn] = useState(true);
   const [isConsoleOpen, setIsConsoleOpen] = useState(false);
-  const [isLogoModalOpen, setIsLogoModalOpen] = useState(false);
-  const [activeLogoId, setActiveLogoId] = useState<LogoOptionId>('zv-master');
+  const [logoVariant] = useState<ZVLogoVariant>('monolith');
   const [isPurging, setIsPurging] = useState(false);
   const [wishlistNotifications, setWishlistNotifications] = useState<string[]>([]);
 
@@ -39,7 +38,6 @@ export const App: React.FC = () => {
     setSelectedProject(null);
     setActiveSection('hub');
     setIsConsoleOpen(false);
-    setIsLogoModalOpen(false);
   };
 
   const handleEmergencyPurge = () => {
@@ -74,7 +72,7 @@ export const App: React.FC = () => {
       {!isBooted && (
         <BootScreen 
           onBootComplete={handleBootComplete} 
-          activeLogoId={activeLogoId}
+          logoVariant={logoVariant}
         />
       )}
 
@@ -88,8 +86,7 @@ export const App: React.FC = () => {
             isScanlinesOn={isScanlinesOn}
             onToggleScanlines={() => setIsScanlinesOn(!isScanlinesOn)}
             onOpenConsole={() => setIsConsoleOpen(true)}
-            onOpenLogoShowcase={() => setIsLogoModalOpen(true)}
-            activeLogoId={activeLogoId}
+            logoVariant={logoVariant}
             coordinates={SYSTEM_METADATA.coordinates}
           />
 
@@ -99,7 +96,6 @@ export const App: React.FC = () => {
               <MainHub
                 onSelectProject={(project) => setSelectedProject(project)}
                 onNavigate={(section) => setActiveSection(section)}
-                onOpenLogoShowcase={() => setIsLogoModalOpen(true)}
               />
             )}
 
@@ -137,14 +133,6 @@ export const App: React.FC = () => {
             onWishlist={handleWishlist}
           />
 
-          {/* Brand Logo Identity Selection Modal */}
-          <LogoShowcaseModal
-            isOpen={isLogoModalOpen}
-            onClose={() => setIsLogoModalOpen(false)}
-            activeLogoId={activeLogoId}
-            onSelectLogo={(id) => setActiveLogoId(id)}
-          />
-
           {/* In-Game Terminal CLI Console */}
           <CommandPalette
             isOpen={isConsoleOpen}
@@ -173,7 +161,7 @@ export const App: React.FC = () => {
           <SystemFooter
             onRestartSystem={handleRestartSystem}
             onEmergencyPurge={handleEmergencyPurge}
-            activeLogoId={activeLogoId}
+            logoVariant={logoVariant}
           />
         </>
       )}

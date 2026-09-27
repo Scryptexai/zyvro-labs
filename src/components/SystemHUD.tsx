@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SystemSection } from '../types';
 import { sound } from '../utils/soundManager';
-import { LogoIconRenderer, LogoOptionId } from './LogoShowcaseModal';
+import { ZyvroLogo, ZVLogoVariant } from './ZyvroLogo';
 import { 
   Volume2, 
   VolumeX, 
@@ -13,8 +13,7 @@ import {
   Globe, 
   Users, 
   Radio, 
-  Home,
-  Sparkles
+  Home
 } from 'lucide-react';
 
 interface SystemHUDProps {
@@ -23,8 +22,7 @@ interface SystemHUDProps {
   isScanlinesOn: boolean;
   onToggleScanlines: () => void;
   onOpenConsole: () => void;
-  onOpenLogoShowcase?: () => void;
-  activeLogoId?: LogoOptionId;
+  logoVariant?: ZVLogoVariant;
   coordinates: string;
 }
 
@@ -42,8 +40,7 @@ export const SystemHUD: React.FC<SystemHUDProps> = ({
   isScanlinesOn,
   onToggleScanlines,
   onOpenConsole,
-  onOpenLogoShowcase,
-  activeLogoId = 'zv-master',
+  logoVariant = 'monolith',
   coordinates
 }) => {
   const [isMuted, setIsMuted] = useState(false);
@@ -107,7 +104,7 @@ export const SystemHUD: React.FC<SystemHUDProps> = ({
       ======================================================== */}
       <header className="fixed top-0 left-0 right-0 z-40 bg-[#080808]/90 border-b border-[#202020] backdrop-blur-md px-4 py-2.5 flex items-center justify-between text-xs font-mono select-none">
         
-        {/* Left: System Identifier & State */}
+        {/* Left: System Identifier & Unified ZV Logo */}
         <div className="flex items-center space-x-3">
           <button 
             onClick={() => handleNavClick('hub')}
@@ -117,7 +114,7 @@ export const SystemHUD: React.FC<SystemHUDProps> = ({
             data-cursor-label="RETURN HUB"
           >
             <div className="p-0.5 border border-[#2a2a2a] bg-[#121212] group-hover:border-[#D7FF3F] transition-colors">
-              <LogoIconRenderer id={activeLogoId} size={20} />
+              <ZyvroLogo variant={logoVariant} size={20} />
             </div>
             <div className="text-left">
               <span className="font-display font-bold text-white tracking-wider text-sm block leading-none group-hover:text-[#D7FF3F] transition-colors">
@@ -128,22 +125,6 @@ export const SystemHUD: React.FC<SystemHUDProps> = ({
               </span>
             </div>
           </button>
-
-          {onOpenLogoShowcase && (
-            <button
-              onClick={() => {
-                sound.playClick();
-                onOpenLogoShowcase();
-              }}
-              onMouseEnter={() => sound.playHover()}
-              data-cursor="interact"
-              data-cursor-label="LOGO LAB"
-              className="hidden sm:flex items-center space-x-1.5 px-2 py-0.5 bg-[#141414] hover:bg-[#202020] border border-[#292929] hover:border-[#D7FF3F] text-[10px] text-[#D7FF3F] transition-all ml-1"
-            >
-              <Sparkles className="w-3 h-3 text-[#D7FF3F]" />
-              <span className="uppercase">LOGO OPTIONS</span>
-            </button>
-          )}
 
           <div className="hidden lg:flex items-center space-x-2 text-[10px] text-[#666666] border-l border-[#262626] pl-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#D7FF3F] animate-pulse" />

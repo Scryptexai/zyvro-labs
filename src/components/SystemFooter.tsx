@@ -1,7 +1,7 @@
 import React from 'react';
 import { SYSTEM_METADATA } from '../utils/constants';
 import { sound } from '../utils/soundManager';
-import { LogoIconRenderer, LogoOptionId } from './LogoShowcaseModal';
+import { ZyvroLogo, ZVLogoVariant } from './ZyvroLogo';
 import { 
   RotateCcw, 
   Flame
@@ -10,13 +10,13 @@ import {
 interface SystemFooterProps {
   onRestartSystem: () => void;
   onEmergencyPurge: () => void;
-  activeLogoId?: LogoOptionId;
+  logoVariant?: ZVLogoVariant;
 }
 
 export const SystemFooter: React.FC<SystemFooterProps> = ({
   onRestartSystem,
   onEmergencyPurge,
-  activeLogoId = 'zv-master'
+  logoVariant = 'monolith'
 }) => {
   const socials = [
     { label: 'X // TWITTER', href: 'https://x.com' },
@@ -42,7 +42,7 @@ export const SystemFooter: React.FC<SystemFooterProps> = ({
         {/* Brand System Identifier */}
         <div className="flex flex-col items-center space-y-2">
           <div className="p-2.5 bg-[#0e0e0e] border border-[#222222]">
-            <LogoIconRenderer id={activeLogoId} size={36} />
+            <ZyvroLogo variant={logoVariant} size={36} />
           </div>
           <h2 className="text-2xl md:text-3xl font-black font-display text-white tracking-widest uppercase">
             ZYVRO LABS

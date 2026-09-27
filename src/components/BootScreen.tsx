@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { sound } from '../utils/soundManager';
-import { LogoIconRenderer, LogoOptionId } from './LogoShowcaseModal';
+import { ZyvroLogo, ZVLogoVariant } from './ZyvroLogo';
 import { Shield, Cpu, Activity, Terminal } from 'lucide-react';
 
 interface BootScreenProps {
   onBootComplete: () => void;
-  activeLogoId?: LogoOptionId;
+  logoVariant?: ZVLogoVariant;
 }
 
 export const BootScreen: React.FC<BootScreenProps> = ({ 
   onBootComplete,
-  activeLogoId = 'zv-master'
+  logoVariant = 'monolith'
 }) => {
   const [bootState, setBootState] = useState<'idle' | 'booting' | 'ready'>('idle');
   const [progress, setProgress] = useState(0);
@@ -144,9 +144,9 @@ export const BootScreen: React.FC<BootScreenProps> = ({
                 <span>EXPERIMENTAL GAME OPERATING SYSTEM</span>
               </div>
 
-              {/* Central Dynamic Brand Logo */}
+              {/* Central Official ZV Brand Logo */}
               <div className="p-3 bg-[#0a0a0a] border border-[#222222] shadow-[0_0_20px_rgba(215,255,63,0.15)]">
-                <LogoIconRenderer id={activeLogoId} size={48} />
+                <ZyvroLogo variant={logoVariant} size={48} />
               </div>
 
               <div>

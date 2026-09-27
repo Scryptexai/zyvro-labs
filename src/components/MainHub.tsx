@@ -10,7 +10,6 @@ import {
   BookOpen, 
   ShieldAlert, 
   Cpu, 
-  Sparkles, 
   ExternalLink,
   ChevronLeft,
   Maximize2,
@@ -20,10 +19,9 @@ import {
 interface MainHubProps {
   onSelectProject: (project: GameProject) => void;
   onNavigate: (section: SystemSection) => void;
-  onOpenLogoShowcase?: () => void;
 }
 
-export const MainHub: React.FC<MainHubProps> = ({ onSelectProject, onNavigate, onOpenLogoShowcase }) => {
+export const MainHub: React.FC<MainHubProps> = ({ onSelectProject, onNavigate }) => {
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -188,19 +186,6 @@ export const MainHub: React.FC<MainHubProps> = ({ onSelectProject, onNavigate, o
           </div>
 
           <div className="flex items-center space-x-4 text-xs font-mono text-[#666666]">
-            {onOpenLogoShowcase && (
-              <button
-                onClick={onOpenLogoShowcase}
-                onMouseEnter={() => sound.playHover()}
-                data-cursor="interact"
-                data-cursor-label="LOGO LAB"
-                className="px-2.5 py-1 bg-[#171717] hover:bg-[#D7FF3F] text-[#D7FF3F] hover:text-[#080808] border border-[#D7FF3F]/40 text-[10px] font-mono font-bold tracking-wider uppercase transition-all flex items-center gap-1.5"
-              >
-                <Sparkles className="w-3 h-3" />
-                <span>LOGO BRANDKIT SUITE</span>
-              </button>
-            )}
-
             <span className="flex items-center gap-1.5 text-[#D7FF3F]">
               <Cpu className="w-3.5 h-3.5 animate-pulse" />
               <span>KERNEL: ACTIVE</span>
@@ -410,7 +395,7 @@ export const MainHub: React.FC<MainHubProps> = ({ onSelectProject, onNavigate, o
 
           <div className="pt-4 mt-4 border-t border-[#1a1a1a] flex items-center justify-between text-xs font-mono text-[#D7FF3F]">
             <span className="font-bold tracking-wider">[ INTERACTIVE PROTOTYPES ]</span>
-            <Sparkles className="w-3.5 h-3.5" />
+            <ExternalLink className="w-3.5 h-3.5" />
           </div>
         </div>
 
