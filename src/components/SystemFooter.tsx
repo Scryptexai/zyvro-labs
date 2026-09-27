@@ -1,6 +1,7 @@
 import React from 'react';
 import { SYSTEM_METADATA } from '../utils/constants';
 import { sound } from '../utils/soundManager';
+import { LogoIconRenderer, LogoOptionId } from './LogoShowcaseModal';
 import { 
   RotateCcw, 
   Flame
@@ -9,11 +10,13 @@ import {
 interface SystemFooterProps {
   onRestartSystem: () => void;
   onEmergencyPurge: () => void;
+  activeLogoId?: LogoOptionId;
 }
 
 export const SystemFooter: React.FC<SystemFooterProps> = ({
   onRestartSystem,
-  onEmergencyPurge
+  onEmergencyPurge,
+  activeLogoId = 'delta'
 }) => {
   const socials = [
     { label: 'X // TWITTER', href: 'https://x.com' },
@@ -37,7 +40,10 @@ export const SystemFooter: React.FC<SystemFooterProps> = ({
       <div className="max-w-3xl mx-auto flex flex-col items-center text-center space-y-6">
         
         {/* Brand System Identifier */}
-        <div>
+        <div className="flex flex-col items-center space-y-2">
+          <div className="p-2.5 bg-[#0e0e0e] border border-[#222222]">
+            <LogoIconRenderer id={activeLogoId} size={36} />
+          </div>
           <h2 className="text-2xl md:text-3xl font-black font-display text-white tracking-widest uppercase">
             ZYVRO LABS
           </h2>

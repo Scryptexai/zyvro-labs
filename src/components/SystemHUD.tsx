@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SystemSection } from '../types';
 import { sound } from '../utils/soundManager';
+import { LogoIconRenderer, LogoOptionId } from './LogoShowcaseModal';
 import { 
   Volume2, 
   VolumeX, 
@@ -12,7 +13,8 @@ import {
   Globe, 
   Users, 
   Radio, 
-  Home
+  Home,
+  Sparkles
 } from 'lucide-react';
 
 interface SystemHUDProps {
@@ -21,6 +23,8 @@ interface SystemHUDProps {
   isScanlinesOn: boolean;
   onToggleScanlines: () => void;
   onOpenConsole: () => void;
+  onOpenLogoShowcase?: () => void;
+  activeLogoId?: LogoOptionId;
   coordinates: string;
 }
 
@@ -38,6 +42,8 @@ export const SystemHUD: React.FC<SystemHUDProps> = ({
   isScanlinesOn,
   onToggleScanlines,
   onOpenConsole,
+  onOpenLogoShowcase,
+  activeLogoId = 'delta',
   coordinates
 }) => {
   const [isMuted, setIsMuted] = useState(false);
@@ -106,12 +112,12 @@ export const SystemHUD: React.FC<SystemHUDProps> = ({
           <button 
             onClick={() => handleNavClick('hub')}
             onMouseEnter={() => sound.playHover()}
-            className="flex items-center space-x-2 group focus:outline-none"
+            className="flex items-center space-x-2.5 group focus:outline-none"
             data-cursor="interact"
             data-cursor-label="RETURN HUB"
           >
-            <div className="w-5 h-5 bg-[#D7FF3F] flex items-center justify-center text-[#080808] font-bold text-xs tracking-tighter shadow-[0_0_10px_rgba(215,255,63,0.4)]">
-              Z
+            <div className="p-0.5 border border-[#2a2a2a] bg-[#121212] group-hover:border-[#D7FF3F] transition-colors">
+              <LogoIconRenderer id={activeLogoId} size={20} />
             </div>
             <div className="text-left">
               <span className="font-display font-bold text-white tracking-wider text-sm block leading-none group-hover:text-[#D7FF3F] transition-colors">
@@ -122,6 +128,22 @@ export const SystemHUD: React.FC<SystemHUDProps> = ({
               </span>
             </div>
           </button>
+
+          {onOpenLogoShowcase && (
+            <button
+              onClick={() => {
+                sound.playClick();
+                onOpenLogoShowcase();
+              }}
+              onMouseEnter={() => sound.playHover()}
+              data-cursor="interact"
+              data-cursor-label="LOGO LAB"
+              className="hidden sm:flex items-center space-x-1.5 px-2 py-0.5 bg-[#141414] hover:bg-[#202020] border border-[#292929] hover:border-[#D7FF3F] text-[10px] text-[#D7FF3F] transition-all ml-1"
+            >
+              <Sparkles className="w-3 h-3 text-[#D7FF3F]" />
+              <span className="uppercase">LOGO OPTIONS</span>
+            </button>
+          )}
 
           <div className="hidden lg:flex items-center space-x-2 text-[10px] text-[#666666] border-l border-[#262626] pl-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#D7FF3F] animate-pulse" />

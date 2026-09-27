@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { sound } from '../utils/soundManager';
+import { LogoIconRenderer, LogoOptionId } from './LogoShowcaseModal';
 import { Shield, Cpu, Activity, Terminal } from 'lucide-react';
 
 interface BootScreenProps {
   onBootComplete: () => void;
+  activeLogoId?: LogoOptionId;
 }
 
-export const BootScreen: React.FC<BootScreenProps> = ({ onBootComplete }) => {
+export const BootScreen: React.FC<BootScreenProps> = ({ 
+  onBootComplete,
+  activeLogoId = 'delta'
+}) => {
   const [bootState, setBootState] = useState<'idle' | 'booting' | 'ready'>('idle');
   const [progress, setProgress] = useState(0);
   const [logSteps, setLogSteps] = useState<string[]>([]);
@@ -133,17 +138,25 @@ export const BootScreen: React.FC<BootScreenProps> = ({ onBootComplete }) => {
           <div className="flex flex-col items-center text-center space-y-6">
             
             {/* Title Block */}
-            <div className="space-y-1">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#171717] border border-[#292929] text-[10px] tracking-widest text-[#D7FF3F] uppercase mb-2">
+            <div className="space-y-3 flex flex-col items-center">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#171717] border border-[#292929] text-[10px] tracking-widest text-[#D7FF3F] uppercase">
                 <Cpu className="w-3 h-3 text-[#D7FF3F] animate-pulse" />
                 <span>EXPERIMENTAL GAME OPERATING SYSTEM</span>
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black font-display tracking-tight text-white">
-                ZYVRO
-              </h1>
-              <p className="text-sm md:text-base font-mono tracking-[0.3em] text-[#A0A0A0] uppercase font-semibold">
-                LABORATORIES
-              </p>
+
+              {/* Central Dynamic Brand Logo */}
+              <div className="p-3 bg-[#0a0a0a] border border-[#222222] shadow-[0_0_20px_rgba(215,255,63,0.15)]">
+                <LogoIconRenderer id={activeLogoId} size={48} />
+              </div>
+
+              <div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black font-display tracking-tight text-white">
+                  ZYVRO
+                </h1>
+                <p className="text-sm md:text-base font-mono tracking-[0.3em] text-[#A0A0A0] uppercase font-semibold">
+                  LABORATORIES
+                </p>
+              </div>
             </div>
 
             {/* Divider */}
