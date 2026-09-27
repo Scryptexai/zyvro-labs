@@ -16,7 +16,7 @@ interface SystemFooterProps {
 export const SystemFooter: React.FC<SystemFooterProps> = ({
   onRestartSystem,
   onEmergencyPurge,
-  activeLogoId = 'delta'
+  activeLogoId = 'zv-master'
 }) => {
   const socials = [
     { label: 'X // TWITTER', href: 'https://x.com' },

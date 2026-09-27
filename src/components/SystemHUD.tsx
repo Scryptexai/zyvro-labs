@@ -43,7 +43,7 @@ export const SystemHUD: React.FC<SystemHUDProps> = ({
   onToggleScanlines,
   onOpenConsole,
   onOpenLogoShowcase,
-  activeLogoId = 'delta',
+  activeLogoId = 'zv-master',
   coordinates
 }) => {
   const [isMuted, setIsMuted] = useState(false);

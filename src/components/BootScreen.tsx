@@ -10,7 +10,7 @@ interface BootScreenProps {
 
 export const BootScreen: React.FC<BootScreenProps> = ({ 
   onBootComplete,
-  activeLogoId = 'delta'
+  activeLogoId = 'zv-master'
 }) => {
   const [bootState, setBootState] = useState<'idle' | 'booting' | 'ready'>('idle');
   const [progress, setProgress] = useState(0);

@@ -26,7 +26,7 @@ export const App: React.FC = () => {
   const [isScanlinesOn, setIsScanlinesOn] = useState(true);
   const [isConsoleOpen, setIsConsoleOpen] = useState(false);
   const [isLogoModalOpen, setIsLogoModalOpen] = useState(false);
-  const [activeLogoId, setActiveLogoId] = useState<LogoOptionId>('delta');
+  const [activeLogoId, setActiveLogoId] = useState<LogoOptionId>('zv-master');
   const [isPurging, setIsPurging] = useState(false);
   const [wishlistNotifications, setWishlistNotifications] = useState<string[]>([]);
 
