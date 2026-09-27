@@ -45,13 +45,12 @@ export const GAME_PROJECTS: GameProject[] = [
       multiplayer: "Solo / Optional 2-Player Asymmetric Co-op"
     },
     images: {
-      // 4K Dark Industrial Bio-mechanical Horror Visual
-      hero: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=3840&q=95&auto=format&fit=crop",
-      cover: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=2560&q=95&auto=format&fit=crop",
+      hero: "/assets/games/valen-hero.jpg",
+      cover: "/assets/games/valen-concept-1.jpg",
       conceptArt: [
-        "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=2560&q=95&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=2560&q=95&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=2560&q=95&auto=format&fit=crop"
+        "/assets/games/valen-concept-1.jpg",
+        "/assets/games/valen-concept-2.jpg",
+        "/assets/games/valen-hero.jpg"
       ]
     },
     loreQuote: "“In the dark, we realized the containment unit wasn't built to keep them inside. It was built to keep the universe from finding us.”"
@@ -89,13 +88,11 @@ export const GAME_PROJECTS: GameProject[] = [
       multiplayer: "3v3v3 Tactical Extraction // Dedicated 128-tick"
     },
     images: {
-      // 4K High-Tech Industrial Sci-Fi Visual
-      hero: "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=3840&q=95&auto=format&fit=crop",
-      cover: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=2560&q=95&auto=format&fit=crop",
+      hero: "/assets/games/exo-chrono-hero.jpg",
+      cover: "/assets/games/exo-chrono-concept-1.jpg",
       conceptArt: [
-        "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=2560&q=95&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=2560&q=95&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1563089145-599997674d42?w=2560&q=95&auto=format&fit=crop"
+        "/assets/games/exo-chrono-concept-1.jpg",
+        "/assets/games/exo-chrono-hero.jpg"
       ]
     },
     loreQuote: "“Time is not a straight arrow. Out here, it is a weapon. And whoever controls the frequency commands the battlefield.”"
@@ -133,12 +130,11 @@ export const GAME_PROJECTS: GameProject[] = [
       multiplayer: "Single Player Tactical Campaign"
     },
     images: {
-      hero: "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=3840&q=95&auto=format&fit=crop",
-      cover: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=2560&q=95&auto=format&fit=crop",
+      hero: "/assets/games/null-sector-hero.jpg",
+      cover: "/assets/games/null-sector-concept-1.jpg",
       conceptArt: [
-        "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=2560&q=95&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1518770660439-4636190af475?w=2560&q=95&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1544256718-3bcf237f3974?w=2560&q=95&auto=format&fit=crop"
+        "/assets/games/null-sector-concept-1.jpg",
+        "/assets/games/null-sector-hero.jpg"
       ]
     },
     loreQuote: "“They locked our thoughts in silicon cages. We will burn their networks until only static remains.”"
@@ -176,12 +172,11 @@ export const GAME_PROJECTS: GameProject[] = [
       multiplayer: "4-Crew Cooperative Operations"
     },
     images: {
-      hero: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=3840&q=95&auto=format&fit=crop",
-      cover: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=2560&q=95&auto=format&fit=crop",
+      hero: "/assets/games/aether-voyager-hero.jpg",
+      cover: "/assets/games/aether-voyager-concept-1.jpg",
       conceptArt: [
-        "https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?w=2560&q=95&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=2560&q=95&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=2560&q=95&auto=format&fit=crop"
+        "/assets/games/aether-voyager-concept-1.jpg",
+        "/assets/games/aether-voyager-hero.jpg"
       ]
     },
     loreQuote: "“When you stare into the deep radio silence between stars, you aren't listening for sound. You are listening for consciousness.”"
@@ -345,7 +340,7 @@ export const CREW_MEMBERS: CrewMember[] = [
     },
     loadout: ["UNREAL ENGINE 5.5", "Z-CORE ARCHITECTURE", "SPATIAL MECHANICS", "NEURAL WORLD-BUILDING"],
     bio: "Ex-AAA technical director turned experimental game auteur. Obsessed with high-tension tactile immersion, brutalist world design, and boundary-pushing atmospheric mechanics.",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1200&q=90&auto=format&fit=crop"
+    avatar: "/assets/crew/player-001.jpg"
   },
   {
     id: "crew-002",
