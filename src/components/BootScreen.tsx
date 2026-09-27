@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { sound } from '../utils/soundManager';
-import { ZyvroLogo, ZVLogoVariant } from './ZyvroLogo';
+import { ZyvroLogo } from './ZyvroLogo';
 import { Shield, Cpu, Activity, Terminal } from 'lucide-react';
 
 interface BootScreenProps {
   onBootComplete: () => void;
-  logoVariant?: ZVLogoVariant;
 }
 
 export const BootScreen: React.FC<BootScreenProps> = ({ 
-  onBootComplete,
-  logoVariant = 'monolith'
+  onBootComplete
 }) => {
   const [bootState, setBootState] = useState<'idle' | 'booting' | 'ready'>('idle');
   const [progress, setProgress] = useState(0);
@@ -138,22 +136,22 @@ export const BootScreen: React.FC<BootScreenProps> = ({
           <div className="flex flex-col items-center text-center space-y-6">
             
             {/* Title Block */}
-            <div className="space-y-3 flex flex-col items-center">
+            <div className="space-y-4 flex flex-col items-center">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#171717] border border-[#292929] text-[10px] tracking-widest text-[#D7FF3F] uppercase">
                 <Cpu className="w-3 h-3 text-[#D7FF3F] animate-pulse" />
                 <span>EXPERIMENTAL GAME OPERATING SYSTEM</span>
               </div>
 
-              {/* Central Official ZV Brand Logo */}
-              <div className="p-3 bg-[#0a0a0a] border border-[#222222] shadow-[0_0_20px_rgba(215,255,63,0.15)]">
-                <ZyvroLogo variant={logoVariant} size={48} />
+              {/* Central Official THE CORE Brand Symbol (100% Transparent Vector) */}
+              <div className="py-2 flex items-center justify-center">
+                <ZyvroLogo variant="symbol" state="active" size={64} />
               </div>
 
               <div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-black font-display tracking-tight text-white">
                   ZYVRO
                 </h1>
-                <p className="text-sm md:text-base font-mono tracking-[0.3em] text-[#A0A0A0] uppercase font-semibold">
+                <p className="text-sm md:text-base font-mono tracking-[0.35em] text-[#A0A0A0] uppercase font-semibold pt-1">
                   LABORATORIES
                 </p>
               </div>

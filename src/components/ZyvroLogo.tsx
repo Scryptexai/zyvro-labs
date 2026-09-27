@@ -1,75 +1,120 @@
 import React from 'react';
 
-export type ZVLogoVariant = 'monolith' | 'kinetic' | 'shield';
+export type ZVLogoVariant = 'symbol' | 'wordmark' | 'full' | 'monolith' | 'kinetic' | 'shield';
+export type ZVLogoState = 'normal' | 'active' | 'loading' | 'inactive';
 
 interface ZyvroLogoProps {
   variant?: ZVLogoVariant;
+  state?: ZVLogoState;
   size?: number;
   className?: string;
   showText?: boolean;
 }
 
 export const ZyvroLogo: React.FC<ZyvroLogoProps> = ({
-  variant = 'monolith',
-  size = 32,
+  variant = 'symbol',
+  state = 'normal',
+  size = 36,
   className = '',
   showText = false
 }) => {
-  // Merged Z + V Master Vector (1:1 Ratio)
-  return (
-    <div className={`inline-flex items-center space-x-2.5 select-none ${className}`}>
-      {/* 1:1 Vector Icon */}
-      <svg 
-        width={size} 
-        height={size} 
-        viewBox="0 0 100 100" 
-        fill="none" 
-        xmlns="http://www.w3.org/2000/svg"
-        className="flex-shrink-0"
-      >
-        {variant === 'kinetic' ? (
-          <>
-            {/* Top Z bar */}
-            <path d="M22,18 L78,18 L60,34 L22,34 Z" fill="#E8E8E8" />
-            {/* Diagonal Z cutting through V */}
-            <polygon points="56,34 78,18 36,82 18,82" fill="#D7FF3F" />
-            {/* V Right Wing */}
-            <polygon points="36,82 62,44 82,44 48,92 28,92" fill="#D7FF3F" />
-            {/* Status Diode */}
-            <rect x="80" y="24" width="6" height="6" fill="#D7FF3F" />
-          </>
-        ) : variant === 'shield' ? (
-          <>
-            {/* Outer Shield Frame */}
-            <polygon points="50,8 92,86 8,86" stroke="#D7FF3F" strokeWidth="6" fill="#080808" />
-            {/* Converging Z Beam */}
-            <path d="M28,30 L72,30 L40,66 L72,66" stroke="#F2F2F2" strokeWidth="6" strokeLinecap="square" />
-            {/* Central V Core */}
-            <polygon points="50,44 68,78 32,78" fill="#D7FF3F" opacity="0.9" />
-          </>
-        ) : (
-          /* Default Monolith ZV Fusion */
-          <>
-            {/* Top Z stroke */}
-            <path d="M16,18 L72,18 L52,38 L16,38 Z" fill="#F0F0F0" />
-            {/* Diagonal Z Slash with Neon Acid Lime Glow */}
-            <polygon points="52,38 74,18 38,82 16,82" fill="#D7FF3F" />
-            {/* Right V Arm branching up */}
-            <polygon points="38,82 58,46 82,46 50,92 30,92" fill="#D7FF3F" />
-            {/* Precision Optical Diode */}
-            <circle cx="82" cy="26" r="4" fill="#D7FF3F" />
-          </>
-        )}
-      </svg>
+  // Brand color mapping based on dynamic system state
+  // normal: Primary Off-White vectors + Luminous Lime core
+  // active: Luminous Lime vectors + Intense Lime glow core
+  // loading: Pulsing state
+  // inactive: Muted gray vectors + Dim core
+  const getColors = () => {
+    switch (state) {
+      case 'active':
+        return {
+          vectorFill: '#D7FF3F',
+          coreFill: '#FFFFFF',
+          textBrand: '#FFFFFF',
+          textSub: '#D7FF3F',
+          glow: 'drop-shadow(0 0 8px rgba(215,255,63,0.8))'
+        };
+      case 'loading':
+        return {
+          vectorFill: '#A0A0A0',
+          coreFill: '#D7FF3F',
+          textBrand: '#F1F1EA',
+          textSub: '#D7FF3F',
+          glow: 'drop-shadow(0 0 12px rgba(215,255,63,0.6))'
+        };
+      case 'inactive':
+        return {
+          vectorFill: '#3F3F46',
+          coreFill: '#71717A',
+          textBrand: '#71717A',
+          textSub: '#52525B',
+          glow: 'none'
+        };
+      case 'normal':
+      default:
+        return {
+          vectorFill: '#F1F1EA',
+          coreFill: '#D7FF3F',
+          textBrand: '#FFFFFF',
+          textSub: '#D7FF3F',
+          glow: 'drop-shadow(0 0 6px rgba(215,255,63,0.4))'
+        };
+    }
+  };
 
-      {/* Optional Wordmark */}
-      {showText && (
-        <div className="text-left">
-          <span className="font-display font-black text-white tracking-wider text-sm block leading-none">
-            ZYVRO<span className="text-[#D7FF3F] text-[10px] ml-0.5 font-mono font-bold">LABS</span>
-          </span>
-          <span className="text-[9px] font-mono text-[#A0A0A0] tracking-widest block leading-tight">
-            SYS // 001 · ONLINE
+  const colors = getColors();
+  const isOnlyWordmark = variant === 'wordmark';
+  const isFullLockup = variant === 'full' || showText;
+
+  return (
+    <div className={`inline-flex items-center space-x-3 select-none ${className}`}>
+      {/* Symbol Vector (1:1 Square) */}
+      {!isOnlyWordmark && (
+        <svg
+          width={size}
+          height={size}
+          viewBox="0 0 100 100"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={`flex-shrink-0 transition-all duration-300 ${state === 'loading' ? 'animate-pulse' : ''}`}
+          style={{ filter: colors.glow }}
+        >
+          {/* 4 Convergent Vectors (Inward Arrowheads) */}
+          {/* North Vector */}
+          <polygon points="50,6 64,28 50,38 36,28" fill={colors.vectorFill} />
+          {/* South Vector */}
+          <polygon points="50,94 36,72 50,62 64,72" fill={colors.vectorFill} />
+          {/* West Vector */}
+          <polygon points="6,50 28,36 38,50 28,64" fill={colors.vectorFill} />
+          {/* East Vector */}
+          <polygon points="94,50 72,64 62,50 72,36" fill={colors.vectorFill} />
+
+          {/* Central Diamond Core `◆` */}
+          <polygon points="50,38 62,50 50,62 38,50" fill={colors.coreFill} />
+        </svg>
+      )}
+
+      {/* Typography: ZYVRO LABS */}
+      {isFullLockup && (
+        <div className="text-left flex flex-col justify-center leading-none">
+          <div className="flex items-baseline space-x-1.5">
+            <span 
+              className="font-display font-black tracking-widest uppercase transition-colors"
+              style={{ color: colors.textBrand, fontSize: Math.max(14, Math.round(size * 0.45)) }}
+            >
+              ZYVRO
+            </span>
+            <span 
+              className="font-mono font-bold tracking-widest uppercase transition-colors"
+              style={{ color: colors.textSub, fontSize: Math.max(9, Math.round(size * 0.28)) }}
+            >
+              LABS
+            </span>
+          </div>
+          <span 
+            className="font-mono tracking-[0.25em] text-[#71717A] uppercase mt-0.5 block"
+            style={{ fontSize: Math.max(7, Math.round(size * 0.18)) }}
+          >
+            SYS // OS · CORE
           </span>
         </div>
       )}

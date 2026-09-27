@@ -1,7 +1,7 @@
 import React from 'react';
 import { SYSTEM_METADATA } from '../utils/constants';
 import { sound } from '../utils/soundManager';
-import { ZyvroLogo, ZVLogoVariant } from './ZyvroLogo';
+import { ZyvroLogo } from './ZyvroLogo';
 import { 
   RotateCcw, 
   Flame
@@ -10,13 +10,11 @@ import {
 interface SystemFooterProps {
   onRestartSystem: () => void;
   onEmergencyPurge: () => void;
-  logoVariant?: ZVLogoVariant;
 }
 
 export const SystemFooter: React.FC<SystemFooterProps> = ({
   onRestartSystem,
-  onEmergencyPurge,
-  logoVariant = 'monolith'
+  onEmergencyPurge
 }) => {
   const socials = [
     { label: 'X // TWITTER', href: 'https://x.com' },
@@ -40,16 +38,18 @@ export const SystemFooter: React.FC<SystemFooterProps> = ({
       <div className="max-w-3xl mx-auto flex flex-col items-center text-center space-y-6">
         
         {/* Brand System Identifier */}
-        <div className="flex flex-col items-center space-y-2">
-          <div className="p-2.5 bg-[#0e0e0e] border border-[#222222]">
-            <ZyvroLogo variant={logoVariant} size={36} />
+        <div className="flex flex-col items-center space-y-3">
+          <div className="flex items-center justify-center p-2">
+            <ZyvroLogo variant="symbol" state="active" size={44} />
           </div>
-          <h2 className="text-2xl md:text-3xl font-black font-display text-white tracking-widest uppercase">
-            ZYVRO LABS
-          </h2>
-          <p className="text-xs tracking-[0.25em] text-[#666666] uppercase mt-1">
-            EXPERIMENTAL DIGITAL WORLD &amp; GAME OPERATING SYSTEM
-          </p>
+          <div>
+            <h2 className="text-2xl md:text-3xl font-black font-display text-white tracking-widest uppercase">
+              ZYVRO LABS
+            </h2>
+            <p className="text-xs tracking-[0.25em] text-[#666666] uppercase mt-1">
+              EXPERIMENTAL DIGITAL WORLD &amp; GAME OPERATING SYSTEM
+            </p>
+          </div>
         </div>
 
         {/* System Online Badge */}

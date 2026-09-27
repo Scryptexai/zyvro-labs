@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SystemSection } from '../types';
 import { sound } from '../utils/soundManager';
-import { ZyvroLogo, ZVLogoVariant } from './ZyvroLogo';
+import { ZyvroLogo } from './ZyvroLogo';
 import { 
   Volume2, 
   VolumeX, 
@@ -22,7 +22,6 @@ interface SystemHUDProps {
   isScanlinesOn: boolean;
   onToggleScanlines: () => void;
   onOpenConsole: () => void;
-  logoVariant?: ZVLogoVariant;
   coordinates: string;
 }
 
@@ -40,7 +39,6 @@ export const SystemHUD: React.FC<SystemHUDProps> = ({
   isScanlinesOn,
   onToggleScanlines,
   onOpenConsole,
-  logoVariant = 'monolith',
   coordinates
 }) => {
   const [isMuted, setIsMuted] = useState(false);
@@ -104,7 +102,7 @@ export const SystemHUD: React.FC<SystemHUDProps> = ({
       ======================================================== */}
       <header className="fixed top-0 left-0 right-0 z-40 bg-[#080808]/90 border-b border-[#202020] backdrop-blur-md px-4 py-2.5 flex items-center justify-between text-xs font-mono select-none">
         
-        {/* Left: System Identifier & Unified ZV Logo */}
+        {/* Left: System Identifier & Official Core Logo (100% Transparent) */}
         <div className="flex items-center space-x-3">
           <button 
             onClick={() => handleNavClick('hub')}
@@ -113,11 +111,11 @@ export const SystemHUD: React.FC<SystemHUDProps> = ({
             data-cursor="interact"
             data-cursor-label="RETURN HUB"
           >
-            <div className="p-0.5 border border-[#2a2a2a] bg-[#121212] group-hover:border-[#D7FF3F] transition-colors">
-              <ZyvroLogo variant={logoVariant} size={20} />
+            <div className="flex items-center justify-center group-hover:scale-110 transition-transform">
+              <ZyvroLogo variant="symbol" state="active" size={24} />
             </div>
             <div className="text-left">
-              <span className="font-display font-bold text-white tracking-wider text-sm block leading-none group-hover:text-[#D7FF3F] transition-colors">
+              <span className="font-display font-black text-white tracking-wider text-sm block leading-none group-hover:text-[#D7FF3F] transition-colors">
                 ZYVRO<span className="text-[#D7FF3F] text-[10px] ml-0.5 font-mono">LABS</span>
               </span>
               <span className="text-[9px] text-[#A0A0A0] tracking-widest block leading-tight">

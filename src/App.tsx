@@ -17,7 +17,6 @@ import { CrewDatabase } from './components/CrewDatabase';
 import { TransmissionTerminal } from './components/TransmissionTerminal';
 import { SystemFooter } from './components/SystemFooter';
 import { CommandPalette } from './components/CommandPalette';
-import { ZVLogoVariant } from './components/ZyvroLogo';
 
 export const App: React.FC = () => {
   const [isBooted, setIsBooted] = useState(false);
@@ -25,7 +24,6 @@ export const App: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<GameProject | null>(null);
   const [isScanlinesOn, setIsScanlinesOn] = useState(true);
   const [isConsoleOpen, setIsConsoleOpen] = useState(false);
-  const [logoVariant] = useState<ZVLogoVariant>('monolith');
   const [isPurging, setIsPurging] = useState(false);
   const [wishlistNotifications, setWishlistNotifications] = useState<string[]>([]);
 
@@ -72,7 +70,6 @@ export const App: React.FC = () => {
       {!isBooted && (
         <BootScreen 
           onBootComplete={handleBootComplete} 
-          logoVariant={logoVariant}
         />
       )}
 
@@ -86,7 +83,6 @@ export const App: React.FC = () => {
             isScanlinesOn={isScanlinesOn}
             onToggleScanlines={() => setIsScanlinesOn(!isScanlinesOn)}
             onOpenConsole={() => setIsConsoleOpen(true)}
-            logoVariant={logoVariant}
             coordinates={SYSTEM_METADATA.coordinates}
           />
 
@@ -161,7 +157,6 @@ export const App: React.FC = () => {
           <SystemFooter
             onRestartSystem={handleRestartSystem}
             onEmergencyPurge={handleEmergencyPurge}
-            logoVariant={logoVariant}
           />
         </>
       )}
