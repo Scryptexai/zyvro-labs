@@ -142,17 +142,25 @@ export const BootScreen: React.FC<BootScreenProps> = ({
                 <span>EXPERIMENTAL GAME OPERATING SYSTEM</span>
               </div>
 
-              {/* Central Official THE CORE Brand Symbol (100% Transparent Vector) */}
-              <div className="py-2 flex items-center justify-center">
-                <ZyvroLogo variant="symbol" state="active" size={64} />
+              {/* Central Official ZV Monogram Master Brand Emblem (Ultra-HD 4K Asset) */}
+              <div className="py-3 flex items-center justify-center relative">
+                <div className="absolute inset-0 bg-[#D7FF3F]/15 blur-2xl rounded-full scale-125 pointer-events-none" />
+                <ZyvroLogo variant="symbol" state="active" renderMode="ultra-hd" size={96} />
               </div>
 
               <div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black font-display tracking-tight text-white">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black font-display tracking-tight text-white uppercase">
                   ZYVRO
                 </h1>
-                <p className="text-sm md:text-base font-mono tracking-[0.35em] text-[#A0A0A0] uppercase font-semibold pt-1">
-                  LABORATORIES
+                <div className="flex items-center justify-center space-x-2 pt-1">
+                  <div className="h-[1px] w-6 bg-[#D7FF3F]" />
+                  <span className="text-sm md:text-base font-mono tracking-[0.4em] text-[#D7FF3F] uppercase font-bold">
+                    LABS
+                  </span>
+                  <div className="h-[1px] w-6 bg-[#D7FF3F]" />
+                </div>
+                <p className="text-[10px] font-mono tracking-[0.3em] text-[#888888] uppercase mt-2">
+                  PLAY BEYOND LIMITS
                 </p>
               </div>
             </div>

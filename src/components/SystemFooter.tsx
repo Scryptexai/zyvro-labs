@@ -40,13 +40,20 @@ export const SystemFooter: React.FC<SystemFooterProps> = ({
         {/* Brand System Identifier */}
         <div className="flex flex-col items-center space-y-3">
           <div className="flex items-center justify-center p-2">
-            <ZyvroLogo variant="symbol" state="active" size={44} />
+            <ZyvroLogo variant="symbol" state="active" renderMode="ultra-hd" size={60} />
           </div>
           <div>
             <h2 className="text-2xl md:text-3xl font-black font-display text-white tracking-widest uppercase">
               ZYVRO LABS
             </h2>
-            <p className="text-xs tracking-[0.25em] text-[#666666] uppercase mt-1">
+            <div className="flex items-center justify-center space-x-2 mt-1">
+              <div className="h-[1px] w-4 bg-[#D7FF3F]" />
+              <span className="text-xs font-mono tracking-[0.3em] text-[#D7FF3F] uppercase font-bold">
+                PLAY BEYOND LIMITS
+              </span>
+              <div className="h-[1px] w-4 bg-[#D7FF3F]" />
+            </div>
+            <p className="text-[11px] tracking-[0.2em] text-[#666666] uppercase mt-2">
               EXPERIMENTAL DIGITAL WORLD &amp; GAME OPERATING SYSTEM
             </p>
           </div>

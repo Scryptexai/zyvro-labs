@@ -12,6 +12,17 @@
     color: #F2F2F2;
     font-family: 'JetBrains Mono', 'Share Tech Mono', monospace;
     overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* High-fidelity crisp image rendering */
+  img {
+    image-rendering: auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
   }
 
   /* Custom Sleek Dark Industrial Scrollbar */

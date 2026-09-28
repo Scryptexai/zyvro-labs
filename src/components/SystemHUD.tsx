@@ -102,7 +102,7 @@ export const SystemHUD: React.FC<SystemHUDProps> = ({
       ======================================================== */}
       <header className="fixed top-0 left-0 right-0 z-40 bg-[#080808]/90 border-b border-[#202020] backdrop-blur-md px-4 py-2.5 flex items-center justify-between text-xs font-mono select-none">
         
-        {/* Left: System Identifier & Official Core Logo (100% Transparent) */}
+        {/* Left: System Identifier & Official Master ZV Logo (Ultra-HD 4K Asset) */}
         <div className="flex items-center space-x-3">
           <button 
             onClick={() => handleNavClick('hub')}
@@ -112,14 +112,17 @@ export const SystemHUD: React.FC<SystemHUDProps> = ({
             data-cursor-label="RETURN HUB"
           >
             <div className="flex items-center justify-center group-hover:scale-110 transition-transform">
-              <ZyvroLogo variant="symbol" state="active" size={24} />
+              <ZyvroLogo variant="symbol" state="active" renderMode="ultra-hd" size={32} />
             </div>
             <div className="text-left">
-              <span className="font-display font-black text-white tracking-wider text-sm block leading-none group-hover:text-[#D7FF3F] transition-colors">
-                ZYVRO<span className="text-[#D7FF3F] text-[10px] ml-0.5 font-mono">LABS</span>
-              </span>
-              <span className="text-[9px] text-[#A0A0A0] tracking-widest block leading-tight">
-                SYS // 001 · ONLINE
+              <div className="flex items-center space-x-1">
+                <span className="font-display font-black text-white tracking-wider text-sm block leading-none group-hover:text-[#D7FF3F] transition-colors">
+                  ZYVRO
+                </span>
+                <span className="text-[#D7FF3F] text-[10px] font-mono font-bold">LABS</span>
+              </div>
+              <span className="text-[8px] text-[#A0A0A0] tracking-widest block leading-tight font-mono mt-0.5">
+                PLAY BEYOND LIMITS
               </span>
             </div>
           </button>

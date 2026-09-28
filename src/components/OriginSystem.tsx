@@ -348,6 +348,169 @@ export const OriginSystem: React.FC = () => {
             </div>
           </div>
 
+          {/* Master 4K Assets & Vector Downloads Matrix */}
+          <div className="bg-[#0b0b0b] border border-[#202020] p-6 space-y-4">
+            <div className="flex items-center justify-between border-b border-[#202020] pb-3">
+              <div>
+                <span className="text-xs font-mono text-[#D7FF3F] uppercase tracking-widest flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-[#D7FF3F]" />
+                  4K MASTER RENDERS &amp; VECTOR ASSETS
+                </span>
+                <span className="text-[11px] font-mono text-[#666666]">
+                  HIGH DENSITY PRODUCTION ASSETS (.JPG 4K, .PNG TRANSPARENT, .SVG VECTOR)
+                </span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              
+              {/* Asset 1: Brandkit Overview Board */}
+              <div className="bg-[#121212] border border-[#252525] p-3 space-y-2 group">
+                <div className="aspect-video w-full overflow-hidden bg-black relative">
+                  <img 
+                    src="/assets/brandkit/zyvro-zv-brandkit-overview.jpg" 
+                    alt="Master Brandkit Presentation Board"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <span className="absolute bottom-2 left-2 px-1.5 py-0.5 bg-black/80 text-[9px] font-mono text-[#D7FF3F] border border-[#D7FF3F]/40">
+                    4K MASTER BOARD
+                  </span>
+                </div>
+                <div className="flex items-center justify-between pt-1">
+                  <span className="text-xs font-mono text-white font-bold">BRAND IDENTITY BOARD</span>
+                  <a 
+                    href="/assets/brandkit/zyvro-zv-brandkit-overview.jpg" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-mono text-[#D7FF3F] hover:underline"
+                  >
+                    VIEW 4K ↗
+                  </a>
+                </div>
+              </div>
+
+              {/* Asset 2: 1:1 Master Symbol Dark */}
+              <div className="bg-[#121212] border border-[#252525] p-3 space-y-2 group">
+                <div className="aspect-square w-full overflow-hidden bg-black relative max-h-48 flex items-center justify-center">
+                  <img 
+                    src="/assets/brandkit/zyvro-zv-master-symbol-1x1-dark.jpg" 
+                    alt="1:1 Master Symbol Dark"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <span className="absolute bottom-2 left-2 px-1.5 py-0.5 bg-black/80 text-[9px] font-mono text-[#D7FF3F] border border-[#D7FF3F]/40">
+                    1:1 DARK // 1024px
+                  </span>
+                </div>
+                <div className="flex items-center justify-between pt-1">
+                  <span className="text-xs font-mono text-white font-bold">1:1 SYMBOL (DARK)</span>
+                  <a 
+                    href="/assets/brandkit/zyvro-zv-master-symbol-1x1-dark.jpg" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-mono text-[#D7FF3F] hover:underline"
+                  >
+                    VIEW ↗
+                  </a>
+                </div>
+              </div>
+
+              {/* Asset 3: Horizontal Lockup Dark */}
+              <div className="bg-[#121212] border border-[#252525] p-3 space-y-2 group">
+                <div className="aspect-video w-full overflow-hidden bg-black relative flex items-center justify-center">
+                  <img 
+                    src="/assets/brandkit/zyvro-zv-master-horizontal-lockup-dark.jpg" 
+                    alt="Horizontal Lockup Dark"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <span className="absolute bottom-2 left-2 px-1.5 py-0.5 bg-black/80 text-[9px] font-mono text-[#D7FF3F] border border-[#D7FF3F]/40">
+                    HORIZONTAL LOCKUP
+                  </span>
+                </div>
+                <div className="flex items-center justify-between pt-1">
+                  <span className="text-xs font-mono text-white font-bold">HORIZONTAL (DARK)</span>
+                  <a 
+                    href="/assets/brandkit/zyvro-zv-master-horizontal-lockup-dark.jpg" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-mono text-[#D7FF3F] hover:underline"
+                  >
+                    VIEW ↗
+                  </a>
+                </div>
+              </div>
+
+              {/* Asset 4: 1:1 App Store / Steam Icon */}
+              <div className="bg-[#121212] border border-[#252525] p-3 space-y-2 group">
+                <div className="aspect-square w-full overflow-hidden bg-black relative max-h-48 flex items-center justify-center">
+                  <img 
+                    src="/assets/brandkit/zyvro-zv-app-icon-ios-android.jpg" 
+                    alt="App Icon iOS Android"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <span className="absolute bottom-2 left-2 px-1.5 py-0.5 bg-black/80 text-[9px] font-mono text-[#D7FF3F] border border-[#D7FF3F]/40">
+                    APP &amp; STEAM ICON
+                  </span>
+                </div>
+                <div className="flex items-center justify-between pt-1">
+                  <span className="text-xs font-mono text-white font-bold">APP LAUNCHER ICON</span>
+                  <a 
+                    href="/assets/brandkit/zyvro-zv-app-icon-ios-android.jpg" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-mono text-[#D7FF3F] hover:underline"
+                  >
+                    VIEW ↗
+                  </a>
+                </div>
+              </div>
+
+              {/* Asset 5: Social Banner 16:9 */}
+              <div className="bg-[#121212] border border-[#252525] p-3 space-y-2 group">
+                <div className="aspect-video w-full overflow-hidden bg-black relative">
+                  <img 
+                    src="/assets/brandkit/zyvro-zv-social-banner-og.jpg" 
+                    alt="Social Banner OG"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <span className="absolute bottom-2 left-2 px-1.5 py-0.5 bg-black/80 text-[9px] font-mono text-[#D7FF3F] border border-[#D7FF3F]/40">
+                    16:9 SOCIAL BANNER
+                  </span>
+                </div>
+                <div className="flex items-center justify-between pt-1">
+                  <span className="text-xs font-mono text-white font-bold">STEAM / X BANNER</span>
+                  <a 
+                    href="/assets/brandkit/zyvro-zv-social-banner-og.jpg" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-mono text-[#D7FF3F] hover:underline"
+                  >
+                    VIEW ↗
+                  </a>
+                </div>
+              </div>
+
+              {/* Asset 6: Scalable Vector SVG Package */}
+              <div className="bg-[#121212] border border-[#252525] p-3 space-y-2 group flex flex-col justify-between">
+                <div className="aspect-video w-full bg-[#171717] border border-dashed border-[#333333] flex flex-col items-center justify-center p-4">
+                  <ZyvroLogo variant="horizontal" renderMode="vector" size={42} />
+                  <span className="text-[10px] font-mono text-[#888888] mt-2">100% SCALABLE VECTOR (.SVG)</span>
+                </div>
+                <div className="flex items-center justify-between pt-1">
+                  <span className="text-xs font-mono text-white font-bold">VECTOR SVG ASSET</span>
+                  <a 
+                    href="/assets/brandkit/zyvro-zv-horizontal-lockup-transparent.svg" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-mono text-[#D7FF3F] hover:underline"
+                  >
+                    SVG SOURCE ↗
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
           {/* Construction & Safe Zone Rules */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
